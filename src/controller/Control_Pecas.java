@@ -1,0 +1,31 @@
+package controller;
+
+import java.util.ArrayList;
+
+import Model.Pecas;
+import Model.PecasDAO;
+
+public class Control_Pecas {
+	
+	private static PecasDAO pecaDAO =new PecasDAO();
+	
+	public void lancamentoPecas(int id_os, int id_pecas, int quant_pecas ) {	
+			pecaDAO.insertPecasUsadas(id_os, id_pecas, quant_pecas);
+	}
+	public void cadastrarPecas(ArrayList<Pecas> peca) {
+		 pecaDAO.insertPecas(peca);
+	}
+	public void removerPecas(int id) {
+				pecaDAO.proc_RemovePecas(id);
+	}
+	public void removePecasU(int numOS, int idPeca,int quant) {
+		pecaDAO.removePecaUsada(numOS, idPeca, quant);
+	}
+	public void cont_pecas() {
+		pecaDAO.count_pecas();
+	}
+	public void atualizarpecas(int idPeca, String coluna, String novoValor) {
+		pecaDAO.atualizarPeca(idPeca, coluna, novoValor);
+	}
+	
+}
